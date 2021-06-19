@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <style>
+        body {
+            overflow: visible;
+            position: relative;
+        }
+
+        .box {
+            border: solid 2px black;
+            cursor: grab;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        .zindex {
+            z-index: 1000;
+        }
+
+        img {
+            object-fit: cover;
+            z-index: -1;
+            min-width: 100%;
+            min-height: 100%;
+
+        }
+    </style>
+</head>
+
+<body id="container">
+    <div class="box box1" style="background-color: red;">
+        <h1>I am box</h1>
+    </div>
+    <div class="box box2 zindex" style="background-color: red;">
+        <h1>I am new box</h1>
+    </div>
+    <h3 class="box text zindex">I am text</h3>
+    <div class="box"><img class="image zindex" src="img.jpeg" alt="image"></div>
+
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+        $(function () { $(".box").draggable().resizable(); });
+
+        $(".box1,.box2,.text,.image").click(function () {
+            $(".box1").toggleClass("zindex");
+            $(".box2").toggleClass("zindex");
+            $(".text").toggleClass("zindex");
+            $(".image").toggleClass("zindex");
+        });
+    });
+</script>
+
+</html>
